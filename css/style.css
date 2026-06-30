@@ -1,0 +1,386 @@
+/* Lakeside University — Faculty Web Presence
+   School theme: swap this file to rebrand for any client institution */
+
+:root {
+  --primary:   #1a3a5c;   /* navy  */
+  --accent:    #c9a227;   /* gold  */
+  --light-bg:  #f5f7fa;
+  --border:    #d0d7e2;
+  --text:      #1a1a1a;
+  --muted:     #5a6a7a;
+  --white:     #ffffff;
+  --success-bg:#e6f4ea;
+  --success-border:#2e7d32;
+  --error-bg:  #fdecea;
+  --error-border:#c62828;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-size: 15px;
+  color: var(--text);
+  background: var(--light-bg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Header / Nav ── */
+header {
+  background: var(--primary);
+  color: var(--white);
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+.site-title {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: var(--white);
+  text-decoration: none;
+}
+
+.site-title span { color: var(--accent); }
+
+nav a {
+  color: var(--white);
+  text-decoration: none;
+  margin-left: 28px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  opacity: 0.85;
+  transition: opacity 0.15s;
+}
+
+nav a:hover, nav a.active { opacity: 1; color: var(--accent); }
+
+/* ── Main content wrapper ── */
+main {
+  flex: 1;
+  max-width: 900px;
+  width: 100%;
+  margin: 36px auto;
+  padding: 0 20px;
+}
+
+/* ── Profile hero card ── */
+.profile-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 32px;
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+
+.profile-photo {
+  width: 140px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 3px solid var(--accent);
+  flex-shrink: 0;
+  background: var(--light-bg);
+}
+
+.profile-photo-placeholder {
+  width: 140px;
+  height: 160px;
+  border-radius: 6px;
+  border: 3px solid var(--accent);
+  flex-shrink: 0;
+  background: var(--light-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.profile-info h1 {
+  font-size: 26px;
+  color: var(--primary);
+  margin-bottom: 4px;
+}
+
+.profile-info .title {
+  font-size: 15px;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+.profile-info .contact-grid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 5px 16px;
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.contact-grid .label {
+  color: var(--muted);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.contact-grid a { color: var(--primary); }
+
+.edit-btn {
+  display: inline-block;
+  background: var(--primary);
+  color: var(--white);
+  padding: 8px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  transition: background 0.15s;
+}
+
+.edit-btn:hover { background: #0f2440; }
+
+/* ── Section cards ── */
+.section-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 24px 32px;
+  margin-bottom: 24px;
+}
+
+.section-card h2 {
+  font-size: 16px;
+  color: var(--primary);
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 8px;
+  margin-bottom: 16px;
+}
+
+.bio-text { line-height: 1.7; color: var(--text); }
+
+/* Office hours table */
+.hours-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.hours-table th {
+  background: var(--primary);
+  color: var(--white);
+  padding: 8px 14px;
+  text-align: left;
+  font-size: 13px;
+}
+
+.hours-table td {
+  padding: 8px 14px;
+  border-bottom: 1px solid var(--border);
+}
+
+.hours-table tr:last-child td { border-bottom: none; }
+.hours-table tr:nth-child(even) td { background: var(--light-bg); }
+
+/* Courses list */
+.course-list { list-style: none; }
+
+.course-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 14px;
+}
+
+.course-list li:last-child { border-bottom: none; }
+
+.course-id {
+  font-weight: 700;
+  color: var(--primary);
+  margin-right: 10px;
+  min-width: 80px;
+}
+
+.course-name { flex: 1; }
+
+.course-list a { color: var(--accent); font-size: 13px; margin-left: 16px; }
+
+/* ── Forms ── */
+.form-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 32px;
+  margin-bottom: 24px;
+}
+
+.form-card h2 {
+  font-size: 18px;
+  color: var(--primary);
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 8px;
+  margin-bottom: 24px;
+}
+
+.form-group { margin-bottom: 18px; }
+
+.form-group label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="url"],
+.form-group input[type="time"],
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 9px 12px;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  font-size: 14px;
+  font-family: inherit;
+  color: var(--text);
+  background: var(--white);
+  transition: border-color 0.15s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.form-group textarea { resize: vertical; min-height: 100px; }
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.form-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: var(--white);
+  border: none;
+  padding: 10px 24px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.btn-primary:hover { background: #0f2440; }
+
+.btn-secondary {
+  background: var(--white);
+  color: var(--primary);
+  border: 1px solid var(--primary);
+  padding: 10px 24px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.15s;
+  display: inline-block;
+}
+
+.btn-secondary:hover { background: var(--light-bg); }
+
+.btn-danger {
+  background: #c62828;
+  color: var(--white);
+  border: none;
+  padding: 6px 14px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-danger:hover { background: #a31515; }
+
+/* ── Flash messages ── */
+.alert {
+  padding: 12px 18px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.alert-success {
+  background: var(--success-bg);
+  border: 1px solid var(--success-border);
+  color: #1b5e20;
+}
+
+.alert-error {
+  background: var(--error-bg);
+  border: 1px solid var(--error-border);
+  color: #7f0000;
+}
+
+/* ── Inline add-row forms ── */
+.inline-form {
+  background: var(--light-bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 16px;
+  margin-top: 16px;
+}
+
+.inline-form h3 { font-size: 13px; color: var(--muted); margin-bottom: 10px; }
+
+.inline-form-row {
+  display: flex;
+  gap: 10px;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+.inline-form-row .form-group { margin-bottom: 0; flex: 1; min-width: 120px; }
+
+/* ── Footer ── */
+footer {
+  background: var(--primary);
+  color: rgba(255,255,255,0.65);
+  text-align: center;
+  padding: 18px;
+  font-size: 12px;
+  margin-top: auto;
+}
+
+footer a { color: var(--accent); text-decoration: none; }
